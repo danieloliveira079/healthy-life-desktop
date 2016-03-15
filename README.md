@@ -1,3 +1,3 @@
-# Healthy Life Application
+# Healthy Life Desktop
 
 ### Comming soon
