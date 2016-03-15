@@ -1,0 +1,74 @@
+var path = require('path');
+var webpack = require('webpack');
+var config = require('dotenv').config();
+
+
+module.exports = {
+  context: path.join(__dirname),
+  entry: './app/index.js',
+
+  output: {
+    path: 'build',
+    publicPath: 'build/',
+    filename: 'app.js'
+  },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'API_SERVICE_URL': JSON.stringify(process.env.API_SERVICE_URL || 'https://healthy-life-api.herokuapp.com/'),
+        'DROPBOX_UPLOAD_URL': JSON.stringify(process.env.DROPBOX_UPLOAD_URL || ''),
+        'DROPBOX_UPLOAD_PATH': JSON.stringify(process.env.DROPBOX_UPLOAD_PATH || ''),
+        'DROPBOX_DELETE_URL': JSON.stringify(process.env.DROPBOX_DELETE_URL || ''),
+        'DROPBOX_TOKEN': JSON.stringify(process.env.DROPBOX_TOKEN || '')
+      }
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      "Hammer": "hammerjs"
+    })
+  ],
+  resolve: {
+      alias: {
+        '$': 'jquery',
+        'jQuery': 'jquery'
+      }
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass?outputStyle=expanded&'
+        + 'includePaths[]=' + (path.resolve(__dirname, './bower_components'))
+        + '&'
+        + 'includePaths[]=' + (path.resolve(__dirname, './node_modules'))
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&minetype=application/font-woff"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      }
+    ]
+  }
+};

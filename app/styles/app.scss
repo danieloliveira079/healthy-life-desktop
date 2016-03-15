@@ -1,0 +1,15 @@
+$fa-font-path: '~font-awesome/fonts';
+@import "~font-awesome/scss/font-awesome";
+@import "../../node_modules/react-image-gallery/src/ImageGallery";
+
+@import './variables';
+@import './mixins';
+//@import './fonts';
+@import './custom-materialize';
+@import './common';
+
+/* Components */
+@import './components/image-upload';
+@import './components/navbar';
+
+/* Containers */
