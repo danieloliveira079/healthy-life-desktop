@@ -44,7 +44,7 @@ export default class ImageUpload extends Component {
 
     return (
       <div className="image-upload-component">
-        <Dropzone className="dropzone upload-img placeholder" onDrop={::this.props.onDropImage} accept="image/jpeg">
+        <Dropzone className="dropzone upload-img placeholder" onDrop={::this.props.onDropImage} accept="image/*">
           { isUploading ?
               <div><i className="fa fa-refresh fa-spin loading"></i></div> :
               (<div>

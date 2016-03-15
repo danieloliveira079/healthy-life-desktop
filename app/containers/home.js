@@ -63,8 +63,7 @@ class Home extends Component {
       <div className="app-page page-home">
         <div className="section">
           <div className="row">
-            <div className="col s6"><h4>{Strings.Campaign.TitleList}</h4></div>
-            <div className="col s6"><a className="waves-effect waves-light blue btn-large right" onClick={::this.handleNewCampaignClick}>{Strings.Operations.New}</a></div>
+            <div className="col s6"><h4>{Strings.Campaign.TitleList}</h4></div>            
           </div>
         </div>
         <div className="divider"></div>

@@ -53,6 +53,7 @@ Strings['pt-BR'] = Object.assign({}, Strings['en-US'], {
     Save: 'Salvar',
     Cancel: 'Cancelar',
     Delete: 'Excluir',
+    Subscribe: 'Inscrever',
   },
 
   Login: {

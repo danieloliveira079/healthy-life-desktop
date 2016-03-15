@@ -29,7 +29,7 @@ export default class Campaign extends Component {
               <a><i className="material-icons small">picture_in_picture</i>6</a>
               <a><i className="material-icons small">av_timer</i>{campaign.interval}</a>
               <a onClick={() => { onClick(campaign.id); }}>
-                <i className="material-icons small">mode_edit</i>{Strings.Operations.Edit}
+                <i className="material-icons small">mode_edit</i>{Strings.Operations.Subscribe}
               </a>
             </div>
           </div>
